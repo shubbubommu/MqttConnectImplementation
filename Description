@@ -1,0 +1,18 @@
+points has been Covered:
+
+1. validation needs to be implemented for the ConnectOptions
+2. All the brokerDetails from the Apps has been filtered from Pojo class itself[which maintains unique Instance for each broker and APN]
+2.
+
+2. Connection API dynamic reconnect has been introduced.
+   after the api call)
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ Issue Root Cause for DisConnect() issue, ModeManager need to Stop the CCM and then disconnect Telephony.
