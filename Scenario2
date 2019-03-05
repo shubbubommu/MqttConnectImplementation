@@ -1,0 +1,8 @@
+CcmTransmit
+*************************------------------------------------*********************
+
+PreRequisite:
+All required values should be in proper format and correct info.
+
+1)In CcmTransmit,Application can call this api irrespective of connectstatus of MqttConnection
+and ccmTransmitImpl will store the data in database.
