@@ -18,4 +18,25 @@ Connect Flow on powerBootUp Limited Mode,
 During Connect,If the DataConnection Lost Abruptly during Connection:
 1.)In Telephony DataDisconnect Event, the InternetAvailable flag will be set to False.
 
-During connect, if the 
+During connect, if the Queue got deleted from Server,
+1)the ConnectLost method from CallBack API, 
+will check for if internet status available and will  will retry to connect by calling connectToServer method().
+
+
+During SleepMode:
+1.Ccm will check any data available in database or not.if data exists it will send to web.
+2.Then Disconnect () method will be invoked.
+3. In Disconnect
+    * First it will check for InternetAvailable,using InternetAvailable flag from TelephonyEvent
+      if available, then it will do null check for mqttclient obj and mqttclient connected.
+      it will do Disconnect
+      it will make the mqttClient instance to null.
+      (These checks are needed because the thread has been in hangstate without these checks)
+    * if the Internet is not available,then it will skip the whole process and mqtt obj reference still be there.
+    
+During Limited(after SleepMode)
+1.)TelephonyEvent will trigger the ConnectToServer() and internally check for MqttConnect available or not.
+2.)if during MqttDisconnect didnt clear the instance, then same instance will be connected again.
+3.)if during MqttDisconnect cleared the instance, then new instance and new connection will be created.
+  
+
