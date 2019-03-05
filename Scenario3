@@ -1,0 +1,4 @@
+CcmReceive
+*****************************------------------------------------*****************
+
+1.)This API will provide an API, which Applications can register with this whom want to receive data from Queue.
