@@ -1,0 +1,8 @@
+Scenario 1:
+
+There is only one mqttConnect for both connect and Reconnect.
+There is only one Disconnect.
+There will be only one connection instance active per one server and APN(ipAddress).
+
+
+Positive on BootUp/Reboot:
