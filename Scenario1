@@ -1,3 +1,5 @@
+CCMCONNECT API
+********************----------------------------------------***************************************
 Scenario 1:
 
 There is only one mqttConnect for both connect and Reconnect.
