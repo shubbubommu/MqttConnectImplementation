@@ -2,7 +2,7 @@ points has been Covered:
 
 1. validation needs to be implemented for the ConnectOptions
 2. All the brokerDetails from the Apps has been filtered from Pojo class itself[which maintains unique Instance for each broker and APN]
-2.
+3. Only one Connecti
 
 2. Connection API dynamic reconnect has been introduced.
    after the api call)
@@ -14,5 +14,14 @@ points has been Covered:
    
    
    
-   
- Issue Root Cause for DisConnect() issue, ModeManager need to Stop the CCM and then disconnect Telephony.
+  Disconnect Issue(): 
+ 1.)Issue Root Cause for DisConnect() issue, ModeManager need to Stop the CCM and then disconnect Telephony.
+ 2.) In TeleFixDetention,check for DataConnection there or not by using two Events.
+    -) In Default GateWayEvent  , Need to trigger the Connect Call whether its Reboot or change from Sleep To anyMode.
+    -) In Disconnect, Disconnection will happen only after checking the status of the flag set ,
+       which set true in Defaultgateway event
+       which set false in Datacalldisconnected()
+ 3.)that one will , make the Sleep execution clear without any blocking API.
+ 4.) if the Disconnect calls with Network/DatacallConnection, During Sleep the Mqtt connection wont clear it will be reconnected to the same
+     Instance, using Connectcall happend in Callback API of Mqtt.
+  
