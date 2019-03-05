@@ -15,7 +15,11 @@ points has been Covered:
    
    
   Disconnect Issue(): 
- 1.)Issue Root Cause for DisConnect() issue, ModeManager need to Stop the CCM and then disconnect Telephony.
+ 1.)Issue Root Cause for DisConnect() issue During Sleep:Telephony is getting disconnected,before CCM does 
+ solution:- ModeManager need to Stop the CCM and then disconnect Telephony.[HandShake should be there between CCM and Telephony]
+ 
+ Ccm Internally taking care by following:
+ 
  2.) In TeleFixDetention,check for DataConnection there or not by using two Events.
     -) In Default GateWayEvent  , Need to trigger the Connect Call whether its Reboot or change from Sleep To anyMode.
     -) In Disconnect, Disconnection will happen only after checking the status of the flag set ,
