@@ -20,8 +20,9 @@ points has been Covered:
  
  Ccm Internally taking care by following:
  
- 2.) In TeleFixDetention,check for DataConnection there or not by using two Events.
-    -) In Default GateWayEvent  , Need to trigger the Connect Call whether its Reboot or change from Sleep To anyMode.
+ 2.) In TeleFixDetention,DataConnection/Internet Connection can be check by using two Events.
+    -) In Default GateWayEvent which having network/dataconnection , 
+        Need to trigger the Connect Call whether its Reboot or change from Sleep To anyMode.
     -) In Disconnect, Disconnection will happen only after checking the status of the flag set ,
        which set true in Defaultgateway event
        which set false in Datacalldisconnected()
