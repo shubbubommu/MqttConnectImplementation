@@ -4,5 +4,18 @@ There is only one mqttConnect for both connect and Reconnect.
 There is only one Disconnect.
 There will be only one connection instance active per one server and APN(ipAddress).
 
+BootUp/Reboot:
+1.)All Applications will try to invoke CCMCONNECT API with relevant Server and its details 
+read from CustomerProperties file in device(app/conf/)
+2.)In CcmConnect implementation, Set datastructure has been used to store the details by having unique server and APN(ipAddress).
 
-Positive on BootUp/Reboot:
+Positive
+Connect Flow on powerBootUp Limited Mode,
+1.)ConnectToServer will be invoked only after got the event from Telephony[DefaultGateWay].
+    it make sure  that ipAddress,dataConnection Available so the Mqtt connect happend succesfully.
+2.)In Telephony Defaultgateway Event, the InternetAvailable flag will be set to TRUE.
+
+During Connect,If the DataConnection Lost Abruptly during Connection:
+1.)In Telephony DataDisconnect Event, the InternetAvailable flag will be set to False.
+
+During connect, if the 
